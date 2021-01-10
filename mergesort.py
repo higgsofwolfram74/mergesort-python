@@ -53,17 +53,13 @@ def sort(inp: List[int]) -> List[int]:
     res = []
     sz = len(inp)
 
-    if sz > 2:
+    if sz >= 2:
         front = sort(inp[:(sz // 2)])
         back = sort(inp[(sz // 2):])        
 
         res += merge(front, back)
-        
-    if sz == 2:
-        if inp[0] > inp[1]:
-            inp[0], inp[1] = inp[1], inp[0]
 
-    if sz <= 2:
+    else:
         return inp
 
     return res
